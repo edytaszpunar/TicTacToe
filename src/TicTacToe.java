@@ -95,9 +95,22 @@ public class TicTacToe extends JFrame {
         ))) {
             won = true;
         }
-        
+
         if (won) {
             topLabel.setText("Wygrał gracz " + currentPlayer.name());
+
+            int result = JOptionPane.showConfirmDialog(this,
+                    "Zwyciężył gracz " + currentPlayer + ". Czy chcesz zagra jeszcze raz?",
+                    "Koniec gry",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+
+            if (result == JOptionPane.YES_OPTION) {
+                resetBoard(null);
+            }
+            if (result == JOptionPane.NO_OPTION) {
+                System.out.println(0);
+            }
         }
         return won;
     }
